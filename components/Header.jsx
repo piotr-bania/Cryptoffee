@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import Link from 'next/link'
 
-const categories = [{ name: 'Fibonacci', slug: 'fibonacci' }, { name: 'Second Category', slug: 'second-category' }]
+const categories = [{ name: 'Fibonacci', slug: 'fibonacci' }, { name: 'Technical Analysis', slug: 'technical-analysis' }]
 
 const Header = () => {
   return (
