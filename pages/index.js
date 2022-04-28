@@ -1,14 +1,8 @@
 import Head from 'next/head'
 import { PostCard, Categories, PostWidget } from '../components'
+import { getPosts } from '../services'
 
-const posts = [
-  { title: 'The Comprehensive Fibonacci Analysis',
-  excerpt: 'The following series of articles will encourage you to explore a new area of technical analysis – the Comprehensive Fibonacci analysis'},
-  { title: 'Second Post',
-  excerpt: 'Second excerpt goes here.'}
-]
-
-export default function Home() {
+export default function Home({ posts }) {
   return (
     <div className="container mx-auto px-10 mb-8">
       <Head>
@@ -32,4 +26,10 @@ export default function Home() {
   )
 }
 
-// export default Home
+export async function getStaticProps() {
+  const posts = (await getPosts()) || []
+
+  return {
+    props: { posts }
+  }
+}
